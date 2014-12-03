@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' media='screen' href='css/concise.min.css' />
+        <link rel="stylesheet" type='text/css' media='screen' href="css/normalize.css">
+        <link rel="stylesheet" type='text/css' media='screen' href="css/foundation.min.css">
+        <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+        <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script type='text/javascript' src='js/concise.min.js'></script>
+        <script type="text/javascript" src="js/foundation.min.js"></script>
+        <script type="text/javascript" src="js/vendor/modernizr.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+
+	<style type="text/css">
+	<!--
+		div.datepicker {
+		    position: relative;
+		    font-family: Arial, Helvetica, sans-serif;
+		    font-size: 12px;
+		    width: 196px;
+		    height: 147px;
+		    position: absolute;
+		    cursor: default;
+		    top: 0;
+		    left: 0;
+		    display: none;
+		    z-index: 99;
+		}
+		h1 { text-align: center; }
+		h2 { text-align: center; }
+	-->
+	</style>
+    </head>
+
+    <body>
+        <div class="row collapse">
+            <div class="small-12 large-12 columns">
+                <h2 style="align:center">時間外空調申請(beta)</h2>
+                <hr>
+            </div>
+        </div>
+
+        <form action='<%=@base_path%>' method='post'>
+            <% @elements.each do |e| %>
+                <div class="row collapse">
+                    <div class="small-3 large-2 columns">
+                        <span class="prefix"><%= e[:jp] %></span>
+                    </div>
+                    <div class="small-9 large-10 columns">
+                        <input type='text' name='<%= e[:en] %>' value='<%=@session[e[:key]]%>'>
+                    </div>
+                </div> 
+            <% end %>
+
+            <div class="row collapse">
+                <div class="small-3 large-2 columns">
+                    <span class="prefix">日付</span>
+                </div>
+                <div class="small-9 large-10 columns">
+                    <input type="text" name="date" id="datepicker" value='<%=@session[:date]%>'>
+                </div>
+            </div>
+
+            <div class="row collapse">
+                <div class="small-12 large-12 columns">
+                    <button type='submit' name='_submit' value='生成' class='button postfix'>生成</button>
+                </div>
+            </div>
+        </form>
+
+        <script type="text/javascript">
+            $(function(){
+                $("#datepicker").datepicker({
+                    showButtonPanel: true,
+                    dateFormat: 'yy-mm-dd',
+                    beforeShow: function(input, inst) {
+                        var calendar = inst.dpDiv;    // Datepicker
+
+                        setTimeout(function() {
+                            calendar.position({
+                                my: 'left bottom',    // カレンダーの左下
+                                at: 'left top',       // 表示対象の左上
+                                of: input             // 対象テキストボックス
+                            });
+                        }, 1);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
