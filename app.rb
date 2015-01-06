@@ -14,19 +14,18 @@ set :session_secret, '6e9XESoiNK35jp4l2fHCdIBDmqzQycntF'
 set :sessions, true
 
 get '/' do
-  puts session[:belong]
   @session = session
   @base_path = request.env['REQUEST_URI']
 
   @elements = [
-      {:jp => "所属", :en => "belong", :key => :belong },
-      {:jp => "申請者", :en => "applicant", :key => :applicant },
-      {:jp => "内線番号", :en => "tel", :key => :tel },
-      {:jp => "メールアドレス", :en => "mail", :key => :mail },
-      {:jp => "棟名", :en => "building_name", :key => :building_name },
-      {:jp => "室名", :en => "room_name", :key => :room_name },
-      {:jp => "室番号", :en => "room_number", :key => :room_number },
-      {:jp => "理由", :en => "reason", :key => :reason },
+      {:jp => "所属",           :en => "belong",        :key => :belong        },
+      {:jp => "申請者",         :en => "applicant",     :key => :applicant     },
+      {:jp => "内線番号",       :en => "tel",           :key => :tel           },
+      {:jp => "メールアドレス", :en => "mail",          :key => :mail          },
+      {:jp => "棟名",           :en => "building_name", :key => :building_name },
+      {:jp => "室名",           :en => "room_name",     :key => :room_name     },
+      {:jp => "室番号",         :en => "room_number",   :key => :room_number   },
+      {:jp => "理由",           :en => "reason",        :key => :reason        },
   ]
 
   erb :"index.html"
