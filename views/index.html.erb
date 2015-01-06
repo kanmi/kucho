@@ -1,15 +1,15 @@
 <html>
     <head>
-        <link rel='stylesheet' type='text/css' media='screen' href='css/concise.min.css' />
-        <link rel="stylesheet" type='text/css' media='screen' href="css/normalize.css">
-        <link rel="stylesheet" type='text/css' media='screen' href="css/foundation.min.css">
-        <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
-        <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-        <script type='text/javascript' src='js/concise.min.js'></script>
-        <script type="text/javascript" src="js/foundation.min.js"></script>
-        <script type="text/javascript" src="js/vendor/modernizr.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="<%= uri("/css/concise.min.css") %>" />
+        <link rel="stylesheet" type="text/css" media="screen" href="<%= uri("/css/normalize.css") %>" />
+        <link rel="stylesheet" type="text/css" media="screen" href="<%= uri("/css/foundation.min.css") %>" />
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css"/>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="<%= uri("/js/concise.min.js") %>"></script>
+        <script type="text/javascript" src="<%= uri("/js/foundation.min.js") %>"></script>
+        <script type="text/javascript" src="<%= uri("/js/vendor/modernizr.js") %>"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 
 	<style type="text/css">
 	<!--
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <form action='<%=@base_path%>' method='post'>
+        <form action='<%= uri("/") %>' method='post'>
             <% @elements.each do |e| %>
                 <div class="row collapse">
                     <div class="small-3 large-2 columns">
