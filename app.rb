@@ -58,6 +58,7 @@ post '/' do
     app.run
     File.write(tmpdir + "/word/document.xml", app.result)
     system("cd #{tmpdir}; /usr/local/bin/zip -qr ../#{tmpdir.split('/')[-1]}.docx ./")
+    system("rm #{tmpdir}")
   end
 
   redirect "#{request.env['REQUEST_URI']}files/#{tmpdir.split('/')[-1]}.docx"
