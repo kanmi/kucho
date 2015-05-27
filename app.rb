@@ -6,7 +6,6 @@ require './lib/air_conditioner_application'
 require 'digest/md5'
 require 'rexml/document'
 require 'fileutils'
-require 'pp'
 
 set :bind, '0.0.0.0'
 set :port, 3000
