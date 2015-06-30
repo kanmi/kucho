@@ -81,7 +81,7 @@ class AirConditionerApplication
       text = "申請者　　　　　" + self.applicant.mb_ljust(14) + "　印"
     elsif text == 'ＴＥＬ（内線）　　　　　　　　　　'
       text = "ＴＥＬ（内線）　" + self.tel.mb_ljust(18)
-    elsif text == 'e-mail'
+    elsif text == 'e mail'
       text = "e-mail　　　　　 " + self.mail.mb_ljust(18)
     elsif  text.include? '平成　　年　　月　　日'
       text = text.sub(/平成　　年　　月　　日/, self.date.to_era("平成 %E年 %m月 %d日") )
